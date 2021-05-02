@@ -1,0 +1,43 @@
+﻿@model IEnumerable<AngelsAutomotive.Data.Entities.ServiceOrder>
+
+@{ ViewData["Title"] = "Index"; }
+
+<h2>Service Order</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            @if (this.User.IsInRole("Admin"))
+            {
+<th>
+    @Html.DisplayNameFor(model => model.User.FullName)
+</th>            }
+            <th>
+                @Html.DisplayNameFor(model => model.DateTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+<tr>
+    @if (this.User.IsInRole("Admin"))
+    {
+<th>
+    @Html.DisplayFor(modelItem => item.User.FullName)
+</th>
+                }
+    <td>
+        @Html.DisplayFor(modelItem => item.DateTime)
+    </td>
+    <td>
+        <a asp-action="Deliver" asp-route-id="@item.Id" class="btn btn-info" id="btnDeliver">Details</a>
+        <!-- <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" id="btnDelete">Delete</a>-->
+    </td>
+</tr>}
+    </tbody>
+</table>

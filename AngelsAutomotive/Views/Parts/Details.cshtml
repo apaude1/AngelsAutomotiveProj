@@ -1,0 +1,40 @@
+﻿@model AngelsAutomotive.Data.Entities.Parts
+
+@{ ViewData["Title"] = "Details"; }
+
+<h2>Details</h2>
+
+<div>
+    <h4>Brand</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PartName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PartName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PartSeller)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PartSeller)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ResellingPrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ResellingPrice)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchasedPrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PurchasedPrice)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

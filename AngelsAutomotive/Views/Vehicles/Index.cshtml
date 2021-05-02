@@ -1,0 +1,91 @@
+﻿@model IEnumerable<AngelsAutomotive.Data.Entities.Vehicle>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VehYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehMake)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehModel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehiclePlateNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehMileage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VinNummber)
+            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fuel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehMake)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehModel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehiclePlateNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehMileage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VinNummber)
+            </td>
+            @*<td>
+            @if (!string.IsNullOrEmpty(item.ImageUrl))
+            {
+                <img src="@Url.Content(item.ImageUrl)" alt="image" style="width:100px;height:150px;max-width:100%;height:auto;"/>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fuel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remarks)
+        </td>*@
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
